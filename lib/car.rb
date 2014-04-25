@@ -2,20 +2,21 @@ require 'date'
 
 class Car
 
-  #depreciation per year as a rate
+  #depreciation per year as a rate, roughly a constant
   DEPRECIATION = .8
   # class variable
-  @shared_ins_id = 353
+  @car_id = 10_000_000_000
 
-  def self.shared_ins_id
-    @shared_ins_id
+  def self.car_id
+    @car_id
   end
 
-  def self.gen_ins_id
-    @shared_ins_id += 1
+  def self.gen_car_id
+    @car_id += 1
   end
-
+  #getter method for items staying constant
   attr_reader :car_id, :make, :model, :model_year, :msrp, :color, :transmission
+  #setter method for items that may change
   attr_accessor :mileage, :damage, :repairs_needed
 
   def initialize(make, model, year, color, trans, msrp, miles, damage, condition)
@@ -28,6 +29,8 @@ class Car
     @mileage = miles
     @damage = damage
     @repairs_needed = condition
+
+    @car_id = Car.gen_car_id
   end
 
   def car_age
