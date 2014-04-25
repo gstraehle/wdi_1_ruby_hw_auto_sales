@@ -1,6 +1,6 @@
-# require 'date'
+require 'date'
 
-# class Car
+class Car
 
 #   #depreciation per year as a rate, roughly a constant
 #   DEPRECIATION = .8
@@ -14,15 +14,15 @@
 #   def self.gen_car_id
 #     @car_id += 1
 #   end
-#   #getter method for items staying constant
-#   attr_reader :car_id, :make, :model, :model_year, :msrp, :color, :transmission
+   #getter method for items staying constant
+   attr_reader :make, :model, :model_year #, :msrp, :color, :transmission, :car_id,
 #   #setter method for items that may change
 #   attr_accessor :mileage, :damage, :repairs_needed
 
-#   def initialize(make, model, year, color, trans, msrp, miles, damage, condition)
-#     @make = make
-#     @model = model
-#     @model_year = year
+   def initialize(make, model, year)# color, trans, msrp, miles, damage, condition)
+     @make = make
+     @model = model
+     @model_year = year
 #     @color = color
 #     @transmission = trans
 #     @msrp = msrp
@@ -31,7 +31,7 @@
 #     @repairs_needed = condition
 
 #     @car_id = Car.gen_car_id
-#   end
+   end
 
 #   def car_age
 #     now = Date.today
@@ -41,4 +41,4 @@
 #   def calculated_price
 #     msrp
 #   end
-# end
+ end
