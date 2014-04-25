@@ -1,0 +1,20 @@
+Outline:
+Will need minimally a Dealer and Car class.
+The Car Class can be broken down to New/Used.
+  Used cars can have damage, which may be private
+The Dealer for these purposes can be considered an institution
+  It can still be honest or corrupt
+
+Cars will need:
+car_id, make, model, year, msrp, mileage, damage_needing_repair, condition
+  mileage, damage_needing_repair, condition, age (derived) will change
+Dealer will need:
+dealer_name, location, car_id, total cars (derived), total value of cars (derived), corrupt/honest (private)
+
+User stories:
+<____> User can see price of specific car
+<____> User can find cars by price range
+<____> User can find cars by make, model, year, or color
+<____> User can see total cars on lot
+<____> User can add dealer inventory
+<____> User can haggle with dealer
