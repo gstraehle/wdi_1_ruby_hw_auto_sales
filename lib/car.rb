@@ -33,10 +33,9 @@ class Car
 #     @car_id = Car.gen_car_id
    end
 
-#   def car_age
-#     now = Date.today
-#     now.year - model_year
-#   end
+   def car_age
+     Date.today.year - model_year
+   end
 # # each value wil serve to downgrade the value off of the origninal msrp
 #   def calculated_price
 #     msrp
