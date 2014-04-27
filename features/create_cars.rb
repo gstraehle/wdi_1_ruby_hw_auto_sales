@@ -1,13 +1,13 @@
 require_relative '../lib/car'
 
 
- uglypontiac = Car.new("pontiac","aztec", 2006, "red", "auto", 10_000, 43_500, 850, "fine")
- puts "The car is a #{uglypontiac.color} #{uglypontiac.make} #{uglypontiac.model} from #{uglypontiac.model_year}."
- puts "This #{uglypontiac.transmission} trans car was worth #{uglypontiac.msrp}"
- puts "Now has #{uglypontiac.mileage} miles, #{uglypontiac.repairs_needed} worth of needed repairs and is in #{uglypontiac.poor_condition} condition"
- puts "The car is #{uglypontiac.car_age} years old."
- puts "ID number #{uglypontiac.car_id}."
- puts "Calculated price is #{uglypontiac.calculated_price}"
+ mysubaru = Car.new("subaru","legacy", 2011, "black", "auto", 26_000, 43_000, 100, "good")
+ puts "The car is a #{mysubaru.color} #{mysubaru.make} #{mysubaru.model} from #{mysubaru.model_year}."
+ puts "This #{mysubaru.transmission} trans car was worth #{mysubaru.msrp}"
+ puts "Now has #{mysubaru.mileage} miles, #{mysubaru.repairs_needed} worth of needed repairs and is in #{mysubaru.poor_condition} condition"
+ puts "The car is #{mysubaru.car_age} years old."
+ puts "ID number #{mysubaru.car_id}."
+ puts "Calculated price is #{mysubaru.calculated_price}"
 
 # uglydodge = Car.new("dodge","neon", 2003, "pink", "man", 200_000, 430_500, 150, "poor")
 
