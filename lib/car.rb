@@ -12,7 +12,7 @@ class Car
     @inventory_id += 1
   end
   #getter method for items staying constant
-  attr_reader :make, :model, :model_year, :msrp, :color, :transmission, :inventory_id
+  attr_reader :make, :model, :model_year, :msrp, :color, :transmission,:inventory_id
 
   # initialized statements do not match word-for-word with inst. var names
   def initialize(make, model, year, color, trans, msrp)

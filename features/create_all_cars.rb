@@ -27,4 +27,5 @@ puts "ID number #{uglydodge.inventory_id}."
 # puts "Calculated price is #{uglydodge.calculated_price}"
 
 puts uglydodge.class
+puts uglydodge.make
 
