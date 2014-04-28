@@ -1,9 +1,9 @@
-require 'date'
+require 'date' #date is calle upon in age calc later
 
 class Car
   # class variable
-   @inventory_id = 0
-
+  @inventory_id = 0
+  #this generates a unique for each car on the lot
   def self.inventory_id
     @inventory_id
   end
