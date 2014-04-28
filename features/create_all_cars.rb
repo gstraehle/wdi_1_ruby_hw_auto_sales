@@ -37,7 +37,7 @@ puts "Dealer #{dealership.dealer_name} out in #{dealership.location} has #{deale
 #method that allows us to print out a list of all of the cars
 def list_all_cars(total_number_of_cars_on_lot, lot_array)
   car_index = 0
-    total_number_of_cars_on_lot.times do
+  total_number_of_cars_on_lot.times do
     puts "Car #{car_index + 1}: #{lot_array[car_index].model_year} #{lot_array[car_index].make} #{lot_array[car_index].model} priced at $#{lot_array[car_index].sale_price}"
     car_index += 1
   end
