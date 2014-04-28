@@ -1,31 +1,20 @@
-require_relative '../lib/used_car'
+require_relative '../lib/dealer'
+
+print "what is the name of the dealership?"
+dealership_name = gets.chomp
+print "what town is the dealership in?"
+location = gets.chomp
+
+dealership = Dealer.new(dealership_name, location)
 
 mysubaru = UsedCar.new("subaru","legacy", 2011, "black", "auto", 26_000, 43_000, 500, "good")
-puts "The car is a #{mysubaru.color} #{mysubaru.make} #{mysubaru.model} from #{mysubaru.model_year}."
-puts "This #{mysubaru.transmission} trans car was worth #{mysubaru.msrp}."
-puts "Now has #{mysubaru.mileage} miles, #{mysubaru.repairs_needed} worth of needed repairs and is in #{mysubaru.poor_condition} condition"
-puts "The car is #{mysubaru.car_age} years old."
-puts "ID number #{mysubaru.inventory_id}."
-puts "Calculated price is #{mysubaru.calculated_price}"
-puts
-# uglydodge = Car.new("dodge","neon", 2003, "pink", "man", 200_000, 430_500, 150, "poor")
+dealership.add_cars_to_lot(mysubaru)
+
 momshonda = UsedCar.new("honda","crv", 2013, "blue", "auto", 24_000, 5_000, 0, "great")
-puts "The car is a #{momshonda.color} #{momshonda.make} #{momshonda.model} from #{momshonda.model_year}."
-puts "This #{momshonda.transmission} trans car was worth #{momshonda.msrp}."
-puts "Now has #{momshonda.mileage} miles, #{momshonda.repairs_needed} worth of needed repairs and is in #{momshonda.poor_condition} condition"
-puts "The car is #{momshonda.car_age} years old."
-puts "ID number #{momshonda.inventory_id}."
-puts "Calculated price is #{momshonda.calculated_price}"
+dealership.add_cars_to_lot(momshonda)
 
-puts
 uglydodge = Car.new("dodge","neon", 2003, "pink", "man", 200_000)
-puts "The car is a #{uglydodge.color} #{uglydodge.make} #{uglydodge.model} from #{uglydodge.model_year}."
-puts "This #{uglydodge.transmission} trans car was worth #{uglydodge.msrp}."
-# puts "Now has #{uglydodge.mileage} miles, #{uglydodge.repairs_needed} worth of needed repairs and is in #{uglydodge.poor_condition} condition"
-# puts "The car is #{uglydodge.car_age} years old."
-puts "ID number #{uglydodge.inventory_id}."
-# puts "Calculated price is #{uglydodge.calculated_price}"
+dealership.add_cars_to_lot(uglydodge)
 
-puts uglydodge.class
-puts uglydodge.make
+puts "Dealer #{dealership.dealer_name} out in #{dealership.location} has #{dealership.new_and_used_inventory.length} cars."
 
