@@ -9,14 +9,14 @@ class UsedCar < Car
   #getter method for items staying constant
 
   #setter method for items that may change
-  attr_accessor :mileage, :repairs_needed, :poor_condition
+  attr_accessor :mileage, :repairs_needed, :good_condition
 
 
-  def initialize(make, model, year, color, trans, msrp, miles, damage_val, poor_condition = false)
+  def initialize(make, model, year, color, trans, msrp, miles, damage_val, good_condition = true)
     super(make, model, year, color, trans, msrp)
     @mileage = miles
     @repairs_needed = damage_val
-    @poor_condition = poor_condition
+    @good_condition = good_condition
   end
 
   def car_age
@@ -31,11 +31,15 @@ class UsedCar < Car
     end
     x
   end
-
+  def sale_price
+    calculated_price
+  end
 
  # each value wil serve to downgrade the value off of the origninal msrp
+   private
+
    def calculated_price
-     calc = (msrp.to_f * DEP ** (car_age.to_f + 1.0) * (poor_condition ? 1.0 : 0.7) * mileage_deduction(mileage)) - repairs_needed
+     calc = (msrp.to_f * DEP ** (car_age.to_f + 1.0) * (good_condition ? 1.0 : 0.7) * mileage_deduction(mileage)) - repairs_needed
      calc.to_i
    end
 end

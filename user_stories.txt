@@ -17,5 +17,6 @@ User stories:
 <DONE> User can see names of cars on lot
 <DONE> User can see price of specific car
 <DONE> User can add vehicle
-<____> User can find cars by price range
-<____> User can see if they have a good price
+<DONE> User can spot damage
+<DONE> User can find cars by price range
+
