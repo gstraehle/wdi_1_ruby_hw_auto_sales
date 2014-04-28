@@ -14,22 +14,38 @@ momshonda = UsedCar.new("honda","crv", 2013, "blue", "auto", 24_000, 5_000, 0, "
 dealership.add_cars_to_lot(momshonda)
 
 dadsnissan = UsedCar.new("nissan","altima", 2008, "red", "man", 28_000, 40_000, 0, "great")
-dealership.add_cars_to_lot(momshonda)
+dealership.add_cars_to_lot(dadsnissan)
 
 dadsoldnissan = UsedCar.new("nissan","240sx", 1995, "red", "man", 22_000, 140_000, 1500)
-dealership.add_cars_to_lot(momshonda)
+dealership.add_cars_to_lot(dadsoldnissan)
 
 uglydodge = Car.new("dodge","neon", 2003, "pink", "man", 20_000)
 dealership.add_cars_to_lot(uglydodge)
 
 nicemercedes = Car.new("mercedes","glk", 2014, "navy", "auto", 60_000)
-dealership.add_cars_to_lot(uglydodge)
+dealership.add_cars_to_lot(nicemercedes)
 
 newsubaru = Car.new("subaru","impreza", 2014, "grey", "man", 22_000)
-dealership.add_cars_to_lot(uglydodge)
+dealership.add_cars_to_lot(newsubaru)
 
 jenscar = UsedCar.new("honda","crv", 2008, "blue", "auto", 25_000, 63_000, 200)
-dealership.add_cars_to_lot(uglydodge)
+dealership.add_cars_to_lot(jenscar)
 
 puts "Dealer #{dealership.dealer_name} out in #{dealership.location} has #{dealership.new_and_used_inventory.length} cars."
+
+
+def list_all_cars(total_number_of_cars_on_lot, lot_array)
+  car_index = 0
+    total_number_of_cars_on_lot.times do
+    puts "index #{car_index}: #{lot_array[car_index].model_year} #{lot_array[car_index].make} #{lot_array[car_index].model} priced at $#{lot_array[car_index].msrp}"
+    car_index += 1
+  end
+end
+list_all_cars(dealership.new_and_used_inventory.length, dealership.new_and_used_inventory)
+#inventory_index_request = gets.chomp.to_i
+puts "Please enter which car index you would like to view more about (0-7):"
+
+
+#
+
 

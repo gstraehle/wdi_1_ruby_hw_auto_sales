@@ -14,5 +14,7 @@ class Dealer
     @new_and_used_inventory << car
   end
 #removed getter that was here and put in tup with dealer name and location in attr_reader
-
+  def get_all_of_the_cars
+    @new_and_used_inventory
+  end
 end
