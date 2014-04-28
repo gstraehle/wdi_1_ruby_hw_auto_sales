@@ -37,15 +37,43 @@ puts "Dealer #{dealership.dealer_name} out in #{dealership.location} has #{deale
 def list_all_cars(total_number_of_cars_on_lot, lot_array)
   car_index = 0
     total_number_of_cars_on_lot.times do
-    puts "index #{car_index}: #{lot_array[car_index].model_year} #{lot_array[car_index].make} #{lot_array[car_index].model} priced at $#{lot_array[car_index].msrp}"
+    puts "Car #{car_index + 1}: #{lot_array[car_index].model_year} #{lot_array[car_index].make} #{lot_array[car_index].model} priced at $#{lot_array[car_index].calculated_price}"
     car_index += 1
   end
 end
 list_all_cars(dealership.new_and_used_inventory.length, dealership.new_and_used_inventory)
-#inventory_index_request = gets.chomp.to_i
-puts "Please enter which car index you would like to view more about (0-7):"
+
+puts "Please enter which car index you would like to view more about (1-8):"
+inventory_index_request = gets.chomp.to_i - 1
+puts dealership.new_and_used_inventory[inventory_index_request].inspect
+puts
+puts "now we will add a new car"
+print "enter make:"
+make1 = gets.chomp
+print "enter model:"
+model1 = gets.chomp
+print "enter year:"
+year1 = gets.chomp.to_i
+print "enter color:"
+color1 = gets.chomp
+print "enter transmission:"
+trans1 = gets.chomp
+print "enter an msrp:"
+msrp1 = gets.chomp.to_i
 
 
-#
+usercar = Car.new(make1, model1, year1, color1, trans1, msrp1)
+dealership.add_cars_to_lot(usercar)
+puts
+
+puts "the lot has grown:"
+def list_all_cars(total_number_of_cars_on_lot, lot_array)
+  car_index = 0
+    total_number_of_cars_on_lot.times do
+    puts "Car #{car_index + 1}: #{lot_array[car_index].model_year} #{lot_array[car_index].make} #{lot_array[car_index].model} priced at $#{lot_array[car_index].calculated_price}"
+    car_index += 1
+  end
+end
+list_all_cars(dealership.new_and_used_inventory.length, dealership.new_and_used_inventory)
 
 

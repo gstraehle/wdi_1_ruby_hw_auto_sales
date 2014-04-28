@@ -24,4 +24,8 @@ class Car
     @msrp = msrp
     @inventory_id = Car.gen_inventory_id
   end
+    def calculated_price
+     calc = msrp
+     calc.to_i
+   end
 end

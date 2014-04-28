@@ -14,9 +14,8 @@ dealer_name, location, car_id, total cars (derived), total value of cars (derive
 
 User stories:
 <DONE> User can see total cars on lot
-<____> User can see names of cars on lot
-<____> User can see price of specific car
+<DONE> User can see names of cars on lot
+<DONE> User can see price of specific car
+<DONE> User can add vehicle
 <____> User can find cars by price range
-<____> User can find cars by make, model, year, or color
-<____> User can add dealer inventory
-<____> User can haggle with dealer
+<____> User can see if they have a good price
