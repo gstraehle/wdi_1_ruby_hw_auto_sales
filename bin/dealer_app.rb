@@ -1,3 +1,4 @@
+#require 'pry'
 #linking relevant file in repo
 require_relative '../lib/dealer'
 #this lets you name the dealership
@@ -8,6 +9,7 @@ location = gets.chomp
 #makes the dealership
 dealership = Dealer.new(dealership_name, location)
 #manual, hard-coded entry of 8 example new and used cars
+#binding.pry
 mysubaru = UsedCar.new("subaru","legacy", 2011, "black", "auto", 26_000, 43_000, 500, "good")
 dealership.add_cars_to_lot(mysubaru)
 
@@ -17,7 +19,7 @@ dealership.add_cars_to_lot(momshonda)
 dadsnissan = UsedCar.new("nissan","altima", 2008, "red", "man", 28_000, 40_000, 0, "great")
 dealership.add_cars_to_lot(dadsnissan)
 
-dadsoldnissan = UsedCar.new("nissan","240sx", 1995, "red", "man", 22_000, 140_000, 1500, "good")
+dadsoldnissan = UsedCar.new("nissan","240sx", 1995, "red", "man", 22_000, 140_000, 1500, false)
 dealership.add_cars_to_lot(dadsoldnissan)
 
 uglydodge = Car.new("dodge","neon", 2003, "pink", "man", 20_000)
@@ -65,7 +67,7 @@ msrp1 = gets.chomp.to_i
 usercar = Car.new(make1, model1, Date.today.year, color1, trans1, msrp1)
 dealership.add_cars_to_lot(usercar)
 puts
-puts "Hey we just got a classic vw bug from the 70s with 100k miles, but with nodamage!"
+puts "Hey we just got a classic vw bug from the 70s with 100k miles, but with no damage!"
 bustedclassic = UsedCar.new("vw","bug", 1974, "mustard", "man", 19_000, 100_000, 0, "nope")
 dealership.add_cars_to_lot(bustedclassic)
 #adds new cars
@@ -79,21 +81,36 @@ def list_all_cars(total_number_of_cars_on_lot, lot_array)
 end
 list_all_cars(dealership.new_and_used_inventory.length, dealership.new_and_used_inventory)
 # added some damage functionality
-puts "You think my altima is in poor contion?  You're right, I'll update my database"
-puts "Price on that altima was #{dealership.new_and_used_inventory[2].sale_price}."
-dealership.new_and_used_inventory[2].good_condition = false
-puts "Price on that altima is now #{dealership.new_and_used_inventory[2].sale_price}."
-puts dealership.new_and_used_inventory[2].inspect
 puts
-puts "what is the max you can pay?"
+puts "Here are my used cars in good condition... what do you think?"
+def list_all_cars_in_good_condition(total_number_of_cars_on_lot, lot_array)
+  car_index = 0
+  total_number_of_cars_on_lot.times do
+    if (lot_array[car_index].msrp != lot_array[car_index].sale_price && lot_array[car_index].good_condition != false)
+      puts "#{lot_array[car_index].model_year} #{lot_array[car_index].make} with inventory id #{lot_array[car_index].inventory_id}"
+    end
+    car_index += 1
+  end
+end
+
+list_all_cars_in_good_condition(dealership.new_and_used_inventory.length, dealership.new_and_used_inventory)
+puts "You see damages in which of the above?  Please let me know the inventory ID number!!"
+id_to_change = gets.chomp.to_i - 1
+puts "You're right, I'll update my database"
+puts "Price on that #{dealership.new_and_used_inventory[id_to_change].model} was #{dealership.new_and_used_inventory[id_to_change].sale_price}."
+dealership.new_and_used_inventory[id_to_change].good_condition = false
+puts "Price on that #{dealership.new_and_used_inventory[id_to_change].model} is now #{dealership.new_and_used_inventory[id_to_change].sale_price}."
+puts dealership.new_and_used_inventory[id_to_change].inspect
+puts
+puts "what is the max you can pay, of at least 500?"
 maxpay = gets.chomp.to_i
 
 def list_all_cars_in_range(total_number_of_cars_on_lot, lot_array, max_price)
   car_index = 0
-    total_number_of_cars_on_lot.times do
-      if lot_array[car_index].sale_price < max_price
-        puts "Try Car #{car_index + 1} our #{lot_array[car_index].model_year} #{lot_array[car_index].make}"
-      end
+  total_number_of_cars_on_lot.times do
+    if lot_array[car_index].sale_price < max_price
+      puts "Try Car #{car_index + 1} our #{lot_array[car_index].model_year} #{lot_array[car_index].make}"
+    end
     car_index += 1
   end
 end

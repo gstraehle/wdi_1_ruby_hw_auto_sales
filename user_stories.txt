@@ -13,10 +13,14 @@ dealer_name, location, car_id, total cars (derived), total value of cars (derive
 
 
 User stories:
-<DONE> User can see total cars on lot
-<DONE> User can see names of cars on lot
-<DONE> User can see price of specific car
-<DONE> User can add vehicle
-<DONE> User can spot damage
-<DONE> User can find cars by price range
+<DONE> Create a way to make new cars with read-only attributes
+<DONE> Create a used car subclass of cars with some attrubutes that change, including damage and condition
+<DONE> Create a dealer that has a name and location
+<DONE> Create a unique id for each car
+<DONE> Design CL app so user can see total cars on lot
+<DONE> Design CL app so user can see names of cars on lot
+<DONE> Design CL app so user can see price of specific car
+<DONE> Design CL app so user can add vehicle
+<DONE> Design CL app so user can spot damage, and inventory price can be updated
+<DONE> Design CL app so user can find cars by price range
 
